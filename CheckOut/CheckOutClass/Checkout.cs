@@ -12,7 +12,10 @@ namespace CheckOut.CheckOutClass
         PriceRuleTable priceRuleTable = new PriceRuleTable();
         public void Scan(string item, IList<ShoppingModel> shoppingList)
         {
-           
+            if (!priceRuleTable.PriceRules.Any(p => p.SKU == item))
+            {
+                throw new SkuNotExistException(item + " not available");
+            }
         }
 
         public int GetTotalPrice(IList<ShoppingModel> shoppingList)
