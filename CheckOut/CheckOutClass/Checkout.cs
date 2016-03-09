@@ -45,10 +45,14 @@ namespace CheckOut.CheckOutClass
 
             foreach (var shoppingModel in shoppingList)
             {
-                int unit = 1;
+                int unit = priceRuleTable.PriceRules.Where(p => p.SKU == shoppingModel.Sku && p.Unit <= shoppingModel.Quantity).Max(p => p.Unit);
                 int unitPrice = priceRuleTable.PriceRules.SingleOrDefault(p => p.SKU == shoppingModel.Sku && p.Unit == unit).Price;
-                int totalQuantity = shoppingModel.Quantity;
+                int totalQuantity = shoppingModel.Quantity / unit;
+                int remainder = shoppingModel.Quantity % unit;
                 totalPrice += totalQuantity * unitPrice;
+
+                unitPrice = priceRuleTable.PriceRules.SingleOrDefault(p => p.SKU == shoppingModel.Sku && p.Unit == 1).Price;
+                totalPrice += remainder * unitPrice;
             }
             return totalPrice; 
         }
