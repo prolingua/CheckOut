@@ -39,6 +39,22 @@ namespace CheckOutTest
 
         }
 
+        [TestMethod]
+        public void UnitTest3()
+        {
+            // Arrange
+            IList<ShoppingModel> shoppingList = new List<ShoppingModel>();
+            Checkout checkOut = new Checkout();
+            string item = "A";
+
+            // Act
+            checkOut.Scan(item, shoppingList);
+
+            // Assert
+            Assert.Equals(shoppingList[0].Sku, item); 
+
+        }
+
 
     }
 }
