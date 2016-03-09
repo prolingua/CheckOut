@@ -16,6 +16,22 @@ namespace CheckOut.CheckOutClass
             {
                 throw new SkuNotExistException(item + " not available");
             }
+
+            if (shoppingList == null)
+            {
+                shoppingList = new List<ShoppingModel>();
+            }
+
+            ShoppingModel shoppingModel = shoppingList.SingleOrDefault(s => s.Sku == item);
+
+            if (shoppingModel == null)
+            {
+                shoppingList.Add(new ShoppingModel { Sku = item, Quantity = 1 });
+            }
+            else
+            {
+                shoppingModel.Quantity += 1;
+            }
         }
 
         public int GetTotalPrice(IList<ShoppingModel> shoppingList)

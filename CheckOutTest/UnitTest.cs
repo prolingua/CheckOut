@@ -51,7 +51,7 @@ namespace CheckOutTest
             checkOut.Scan(item, shoppingList);
 
             // Assert
-            Assert.Equals(shoppingList[0].Sku, item); 
+            Assert.AreEqual(shoppingList[0].Sku, item); 
 
         }
 
