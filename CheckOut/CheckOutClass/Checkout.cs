@@ -38,6 +38,18 @@ namespace CheckOut.CheckOutClass
         {
             int totalPrice = 0;
 
+            if (shoppingList == null || shoppingList.Count == 0)
+            {
+                return totalPrice;
+            }
+
+            foreach (var shoppingModel in shoppingList)
+            {
+                int unit = 1;
+                int unitPrice = priceRuleTable.PriceRules.SingleOrDefault(p => p.SKU == shoppingModel.Sku && p.Unit == unit).Price;
+                int totalQuantity = shoppingModel.Quantity;
+                totalPrice += totalQuantity * unitPrice;
+            }
             return totalPrice; 
         }
     }
