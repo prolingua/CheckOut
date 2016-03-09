@@ -1,0 +1,7 @@
+C:\Ayah\Web Apps\CheckOut\CheckOutTest\bin\Debug\CheckOutTest.dll
+C:\Ayah\Web Apps\CheckOut\CheckOutTest\bin\Debug\CheckOutTest.pdb
+C:\Ayah\Web Apps\CheckOut\CheckOutTest\bin\Debug\CheckOut.exe
+C:\Ayah\Web Apps\CheckOut\CheckOutTest\bin\Debug\CheckOut.pdb
+C:\Ayah\Web Apps\CheckOut\CheckOutTest\obj\Debug\CheckOutTest.csprojResolveAssemblyReference.cache
+C:\Ayah\Web Apps\CheckOut\CheckOutTest\obj\Debug\CheckOutTest.dll
+C:\Ayah\Web Apps\CheckOut\CheckOutTest\obj\Debug\CheckOutTest.pdb
