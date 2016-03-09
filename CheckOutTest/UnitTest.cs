@@ -186,5 +186,95 @@ namespace CheckOutTest
             Assert.AreEqual(totalPrice, 45);
 
         }
+
+        [TestMethod]
+        public void UnitTest11()
+        {
+            // Arrange
+            IList<ShoppingModel> shoppingList = new List<ShoppingModel>();
+            Checkout checkOut = new Checkout();
+            string item1 = "B";
+
+            // Act
+            checkOut.Scan(item1, shoppingList);
+            checkOut.Scan(item1, shoppingList);
+            checkOut.Scan(item1, shoppingList);
+
+            int totalPrice = checkOut.GetTotalPrice(shoppingList);
+
+            // Assert
+            Assert.AreEqual(totalPrice, 75);
+
+        }
+
+        [TestMethod]
+        public void UnitTest12()
+        {
+            // Arrange
+            IList<ShoppingModel> shoppingList = new List<ShoppingModel>();
+            Checkout checkOut = new Checkout();
+            string item1 = "C";
+
+            // Act
+            checkOut.Scan(item1, shoppingList);            
+            int totalPrice = checkOut.GetTotalPrice(shoppingList);
+
+            // Assert
+            Assert.AreEqual(totalPrice, 20);
+
+        }
+
+        [TestMethod]
+        public void UnitTest13()
+        {
+            // Arrange
+            IList<ShoppingModel> shoppingList = new List<ShoppingModel>();
+            Checkout checkOut = new Checkout();
+            string item1 = "C";
+
+            // Act
+            checkOut.Scan(item1, shoppingList);
+            checkOut.Scan(item1, shoppingList);
+            int totalPrice = checkOut.GetTotalPrice(shoppingList);
+
+            // Assert
+            Assert.AreEqual(totalPrice, 40);
+
+        }
+
+        [TestMethod]
+        public void UnitTest14()
+        {
+            // Arrange
+            IList<ShoppingModel> shoppingList = new List<ShoppingModel>();
+            Checkout checkOut = new Checkout();
+            string item1 = "D";
+
+            // Act
+            checkOut.Scan(item1, shoppingList);
+            int totalPrice = checkOut.GetTotalPrice(shoppingList);
+
+            // Assert
+            Assert.AreEqual(totalPrice, 15);
+
+        }
+
+        [TestMethod]
+        public void UnitTest15()
+        {
+            // Arrange
+            IList<ShoppingModel> shoppingList = new List<ShoppingModel>();
+            Checkout checkOut = new Checkout();
+            string item1 = "D";
+
+            // Act
+            checkOut.Scan(item1, shoppingList);
+            checkOut.Scan(item1, shoppingList);
+            int totalPrice = checkOut.GetTotalPrice(shoppingList);
+
+            // Assert
+            Assert.AreEqual(totalPrice, 30);
+
+        }
     }
 }
