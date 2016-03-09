@@ -151,5 +151,40 @@ namespace CheckOutTest
             Assert.AreEqual(totalPrice, 230);
 
         }
+
+        [TestMethod]
+        public void UnitTest9()
+        {
+            // Arrange
+            IList<ShoppingModel> shoppingList = new List<ShoppingModel>();
+            Checkout checkOut = new Checkout();
+            string item1 = "B";
+
+            // Act
+            checkOut.Scan(item1, shoppingList);           
+            int totalPrice = checkOut.GetTotalPrice(shoppingList);
+
+            // Assert
+            Assert.AreEqual(totalPrice, 30);
+
+        }
+
+        [TestMethod]
+        public void UnitTest10()
+        {
+            // Arrange
+            IList<ShoppingModel> shoppingList = new List<ShoppingModel>();
+            Checkout checkOut = new Checkout();
+            string item1 = "B";
+
+            // Act
+            checkOut.Scan(item1, shoppingList);
+            checkOut.Scan(item1, shoppingList);
+            int totalPrice = checkOut.GetTotalPrice(shoppingList);
+
+            // Assert
+            Assert.AreEqual(totalPrice, 45);
+
+        }
     }
 }
